@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin // allow React frontend
+@CrossOrigin(origins = "*")
 public class PasteController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class PasteController {
 
         return ResponseEntity.ok(new CreatePasteResponse(
                 p.getId(),
-                "/p/" + p.getId()
+                "/api/pastes/" + p.getId()
         ));
     }
 
