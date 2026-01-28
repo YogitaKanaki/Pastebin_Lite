@@ -18,7 +18,9 @@ public class CorsConfig {
                                 "https://pastebin-lite-frontend-eight.vercel.app"
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*");
+                        .allowedHeaders("*")
+                        .allowCredentials(true)
+                        .maxAge(3600);
             }
         };
     }
