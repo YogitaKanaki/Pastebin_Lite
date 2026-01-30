@@ -14,12 +14,10 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins(
-                                "https://pastebin-lite-frontend-eight.vercel.app"
-                        )
+                        .allowedOrigins("https://pastebin-lite-frontend-eight.vercel.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowedOrigins("https://pastebin-lite-frontend-eight.vercel.app")
+
                         .allowCredentials(false)
 
                         .maxAge(3600);

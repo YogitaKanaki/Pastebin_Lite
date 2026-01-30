@@ -16,7 +16,6 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
 public class PasteController {
 
     @Autowired
@@ -30,9 +29,14 @@ public class PasteController {
 
         Paste p = service.create(req.content(), req.ttl_seconds(), req.max_views());
 
+        String base = System.getenv().getOrDefault(
+                "PUBLIC_BASE_URL",
+                "https://pastebin-lite-frontend-eight.vercel.app"
+        );
+
         return ResponseEntity.ok(new CreatePasteResponse(
                 p.getId(),
-                "/api/pastes/" + p.getId()
+                base + "/p/" + p.getId()
         ));
     }
 
