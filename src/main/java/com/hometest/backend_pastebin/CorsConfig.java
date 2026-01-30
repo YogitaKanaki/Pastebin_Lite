@@ -19,6 +19,9 @@ public class CorsConfig {
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
+                        .allowedOrigins("https://pastebin-lite-frontend-eight.vercel.app")
+                        .allowCredentials(false)
+
                         .maxAge(3600);
             }
         };
